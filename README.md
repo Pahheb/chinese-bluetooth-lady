@@ -31,10 +31,53 @@ chinese_bluetooth_lady.sh
 sh chinese_bluetooth_lady.sh
 ```
 
-## Autostart (optional)
-### Systemd service
-You can create a systemd service to launch the script upon bootup
+## Autostart on boot (optional)
 
+> [!NOTE]
+> The following options were interpreted from [Baeldung](https://www.baeldung.com/linux/run-script-on-startup).
+
+### Cron
+You must edit the crontab file by firstly writing this:
+```
+crontab -e
+```
+And then adding the following line, where `/path/to/chinese_bluetooth_lady.sh` represents the location of the script:
+```
+@reboot sh /path/to/chinese_bluetooth_lady.sh
+```
+
+### rc.local
+You must append the following line in rc.local, which already runs at every bootup by editing:
+```
+/etc/rc.d/rc.local
+```
+And adding the following line, where `/path/to/chinese_bluetooth_lady.sh` represents the location of the script:
+```
+sh /path/to/chinese_bluetooth_lady.sh
+```
+And then, make sure that the rc.local file is executable for it to work:
+```
+chmod +x /etc/rc.d/rc.local
+```
+
+### Systemd service
+You must create a `chinese_bluetooth_lady.service` file under /etc/systemd/system with the following content:
+```
+[Unit]
+Description=Reboot message systemd service.
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /path/to/chinese_bluetooth_lady.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+And then enable it with the following commands:
+```
+chmod 644 /etc/systemd/system/chinese_bluetooth_lady.service
+systemctl enable chinese_bluetooth_lady.service
+```
 
 ## Customization
 To make *"The Bluetooth device is ready to pair"* sound play at initial PC bootup, uncomment the following command on ***line 22***:
