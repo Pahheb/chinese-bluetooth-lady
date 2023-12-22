@@ -9,7 +9,7 @@ Adds the Chinese Bluetooth Lady voice for connecting and disconnecting Bluetooth
 sudo apt install libsox-fmt-mp3 bluetoothctl
 ```
 > [!NOTE]
-> Other distributions, such as Arch and Fedora are not yet officially supported
+> Other distributions, such as Arch and Fedora are not yet officially supported.
 
 
 ## Installation
@@ -47,7 +47,7 @@ And then adding the following line, where `/path/to/chinese_bluetooth_lady.sh` r
 ```
 
 ### Option 2: rc.local
-You must append the following line in rc.local, which already runs at every bootup by editing:
+You must append the following line to rc.local, which already runs at every bootup by editing:
 ```
 /etc/rc.d/rc.local
 ```
@@ -61,7 +61,7 @@ chmod +x /etc/rc.d/rc.local
 ```
 
 ### Option 3: Systemd service
-You must create a `chinese_bluetooth_lady.service` file under /etc/systemd/system with the following content:
+You must create a `chinese_bluetooth_lady.service` file under /etc/systemd/system with the following content, where `/path/to/chinese_bluetooth_lady.sh` represents the location of the script:
 ```
 [Unit]
 Description=Reboot message systemd service.
