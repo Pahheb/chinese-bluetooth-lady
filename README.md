@@ -83,7 +83,7 @@ systemctl enable chinese_bluetooth_lady.service
 To make *"The Bluetooth device is ready to pair"* sound play at initial PC bootup, uncomment the following command on ***line 22***:
 https://github.com/Pahheb/chinese-bluetooth-lady/blob/ad1d71ff31c33abe24bd91c484113f13a4aed914/chinese_bluetooth_lady.sh#L22
 
-The checking interval of the connected bluetooth device is set to 3 seconds by deault, which results in a slight delay of the sound being played when a device is paired/disconnected.
+The checking interval of the connected bluetooth device is set to 3 seconds by default, which results in a slight delay of the sound being played when a device is paired/disconnected.
 
 This interval can be adjusted on ***line 44*** to be quicker (higher CPU usage), or slower (higher delay):
 https://github.com/Pahheb/chinese-bluetooth-lady/blob/ad1d71ff31c33abe24bd91c484113f13a4aed914/chinese_bluetooth_lady.sh#L44
